@@ -1,0 +1,53 @@
+Hierarchical Inheritance
+Simple Explanation
+
+Multiple children inherit from one parent.
+
+Real-World Example
+Father
+ /    \
+Son1  Son2
+
+Both children inherit from the same father.
+
+Diagram
+Animal
+  / \
+Dog Cat
+Program
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+public:
+    void eat()
+    {
+        cout << "Eating..." << endl;
+    }
+};
+
+class Dog : public Animal
+{
+};
+
+class Cat : public Animal
+{
+};
+
+int main()
+{
+    Dog d;
+    Cat c;
+
+    d.eat();
+    c.eat();
+
+    return 0;
+}
+Output
+Eating...
+Eating...
+Student Understanding
+One Parent
+Many Children

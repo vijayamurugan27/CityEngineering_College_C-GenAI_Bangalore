@@ -1,0 +1,76 @@
+Introduction to Inheritance
+Simple Explanation
+
+Inheritance means:
+
+    One class can acquire (inherit) the properties and functions of another class.
+
+The existing class is called:
+
+    Parent Class
+    Base Class
+
+The new class is called:
+
+    Child Class
+    Derived Class
+
+Real-World Example
+Father → Son
+
+A son inherits:
+
+    Family name
+    Property
+    Characteristics
+
+from his father.
+
+Similarly:
+
+    Parent Class
+        ↓
+    Child Class
+
+inherits data and functions.
+
+
+-------------------------------------------
+
+Simple Program
+#include <iostream>
+using namespace std;
+
+class Father
+{
+public:
+    void house()
+    {
+        cout << "Father owns a house" << endl;
+    }
+};
+
+class Son : public Father
+{
+};
+
+int main()
+{
+    Son s;
+
+    s.house();
+
+    return 0;
+}
+Output
+Father owns a house
+
+Student Understanding
+
+    Father Class
+        ↓
+    Son Class
+
+    Son gets Father's property
+
+This is Inheritance.

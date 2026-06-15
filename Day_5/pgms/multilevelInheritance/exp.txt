@@ -1,0 +1,60 @@
+Multilevel Inheritance
+Simple Explanation
+
+Inheritance occurs in multiple levels.
+
+Real-World Example
+Grandfather
+      ↓
+Father
+      ↓
+Son
+
+Properties pass through generations.
+
+Diagram
+A
+↓
+B
+↓
+C
+Program
+#include <iostream>
+using namespace std;
+
+class Grandfather
+{
+public:
+    void land()
+    {
+        cout << "Owns Land" << endl;
+    }
+};
+
+class Father : public Grandfather
+{
+};
+
+class Son : public Father
+{
+};
+
+int main()
+{
+    Son s;
+
+    s.land();
+
+    return 0;
+}
+Output
+Owns Land
+Student Understanding
+Grandfather
+      ↓
+Father
+      ↓
+Son
+
+Son gets property from Grandfather
+through Father

@@ -1,0 +1,12 @@
+Calculator
+
+The same "Add" button can add:
+
+2 Numbers
+3 Numbers
+Decimal Numbers
+
+Same operation.
+
+Different inputs.
+

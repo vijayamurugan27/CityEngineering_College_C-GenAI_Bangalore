@@ -1,0 +1,69 @@
+protected Access Modifier
+Simple Explanation
+
+protected members:
+
+Accessible inside class
+Accessible inside derived class
+
+NOT accessible outside class
+Real-World Example
+Family Locker
+
+Only family members can access it.
+
+Outsiders cannot.
+
+Access Comparison
+Modifier	Same Class	Child Class	Outside
+private	    Yes	        No	        No
+protected	Yes	        Yes	        No
+public	    Yes	        Yes	        Yes
+
+Program
+
+#include <iostream>
+using namespace std;
+
+class Parent
+{
+protected:
+    int money = 10000;
+};
+
+class Child : public Parent
+{
+public:
+    void display()
+    {
+        cout << money;
+    }
+};
+
+int main()
+{
+    Child c;
+
+    c.display();
+
+    return 0;
+}
+
+Output
+10000
+
+
+Student Understanding
+    
+    
+    private
+        ↓
+    Only Parent
+
+    protected
+        ↓
+    Parent + Child
+
+    public
+        ↓
+    Everyone

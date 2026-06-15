@@ -1,0 +1,61 @@
+Constructor Execution Order
+Simple Explanation
+
+When an object is created:
+
+Parent constructor executes first, then Child constructor.
+
+When object is destroyed:
+
+Child destructor executes first, then Parent destructor.
+
+Real-World Example
+
+Imagine building a house:
+
+Foundation
+     ↓
+Walls
+     ↓
+Roof
+
+Foundation must come first.
+
+Similarly:
+
+Parent Constructor
+       ↓
+Child Constructor
+
+
+Program
+#include <iostream>
+using namespace std;
+
+class Parent
+{
+public:
+    Parent()
+    {
+        cout << "Parent Constructor" << endl;
+    }
+};
+
+class Child : public Parent
+{
+public:
+    Child()
+    {
+        cout << "Child Constructor" << endl;
+    }
+};
+
+int main()
+{
+    Child c;
+
+    return 0;
+}
+Output
+Parent Constructor
+Child Constructor

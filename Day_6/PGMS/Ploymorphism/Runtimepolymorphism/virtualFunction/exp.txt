@@ -1,0 +1,67 @@
+Virtual Function
+Simple Explanation
+
+A virtual function allows a child class function to replace the parent class function.
+
+Real-World Example
+Animal Sounds
+
+All animals make sounds.
+
+But:
+
+Dog → Bark
+Cat → Meow
+Cow → Moo
+
+Same action.
+
+Different implementation.
+
+Program
+#include <iostream>
+using namespace std;
+
+class Animal
+{
+public:
+    virtual void sound()
+    {
+        cout << "Animal Sound" << endl;
+    }
+};
+
+class Dog : public Animal
+{
+public:
+    void sound()
+    {
+        cout << "Dog Barks" << endl;
+    }
+};
+
+int main()
+{
+    Animal *ptr;
+
+    Dog d;
+
+    ptr = &d;
+
+    ptr->sound();
+
+    return 0;
+}
+Output
+Dog Barks
+Student Understanding
+
+Without virtual:
+
+Animal Sound
+
+With virtual:
+
+Dog Barks
+
+The child version runs.

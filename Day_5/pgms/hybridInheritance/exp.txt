@@ -1,0 +1,73 @@
+Hybrid Inheritance
+Simple Explanation
+
+Hybrid Inheritance is a combination of two or more inheritance types.
+
+Real-World Example
+
+Imagine:
+
+Grandfather
+      ↓
+Father
+      ↓
+Son
+
+AND
+
+Teacher
+      ↓
+Son
+
+Son inherits from multiple sources and levels.
+
+Diagram
+      A
+     / \
+    B   C
+     \ /
+      D
+
+This combines:
+
+Hierarchical
++
+Multiple
+
+Inheritance.
+
+Program
+#include <iostream>
+using namespace std;
+
+class A
+{
+public:
+    void showA()
+    {
+        cout << "Class A" << endl;
+    }
+};
+
+class B : public A
+{
+};
+
+class C : public A
+{
+};
+
+class D : public B, public C
+{
+};
+
+int main()
+{
+    D obj;
+
+    obj.B::showA();
+
+    return 0;
+}
+Output
+Class A

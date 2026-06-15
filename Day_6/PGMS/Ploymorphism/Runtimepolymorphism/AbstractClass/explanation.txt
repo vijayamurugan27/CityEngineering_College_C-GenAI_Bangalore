@@ -1,0 +1,41 @@
+Abstract Class
+Simple Explanation
+
+An Abstract Class is an incomplete class.
+
+It is only used as a blueprint.
+
+Objects cannot be created directly.
+
+Real-World Example
+Building Blueprint
+
+Blueprint tells:
+
+Rooms
+Doors
+Windows
+
+But you cannot live inside a blueprint.
+
+Actual building must be created.
+
+Example
+class Shape
+{
+public:
+    virtual void draw() = 0;
+};
+
+This class is incomplete.
+
+Student Understanding
+Blueprint
+     ↓
+Actual Building
+
+Similarly:
+
+Abstract Class
+      ↓
+Derived Class

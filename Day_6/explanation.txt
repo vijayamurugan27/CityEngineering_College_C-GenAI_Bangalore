@@ -1,0 +1,139 @@
+================================================================================
+Day 6: Polymorphism in C++
+================================================================================
+
+--------------------------------------------------------------------------------
+Explanation for a 5-Year Old
+--------------------------------------------------------------------------------
+"Polymorphism" is a big word that means "many shapes."
+
+Imagine you have a magic word: "SPEAK!"
+- If you say "SPEAK" to a Dog, the dog says: "Woof!"
+- If you say "SPEAK" to a Cat, the cat says: "Meow!"
+- If you say "SPEAK" to a Bird, the bird says: "Tweet!"
+The action is the same ("SPEAK"), but the animal responds in its own special way. That is **Runtime Polymorphism**. We use a special word in C++ called `virtual` to make this magic happen.
+
+Now, imagine you have a drawing toy:
+- If you give it one number, it draws a Line.
+- If you give it two numbers, it draws a Rectangle.
+- If you give it a word, it writes your Name.
+The machine changes what it does depending on what you feed it! That is **Compile-time Polymorphism** (Function Overloading).
+
+--------------------------------------------------------------------------------
+Technical Explanation
+--------------------------------------------------------------------------------
+Polymorphism allows objects of different classes to respond to the same function call in their own unique way.
+
+1. Compile-Time Polymorphism (Static Binding / Early Binding):
+   The compiler selects the correct function to call at compile time based on the arguments passed.
+   - Function Overloading: Multiple functions in the same scope with the same name but different parameters (type, number, or order).
+   - Operator Overloading: Giving a standard C++ operator (like `+`, `-`, `<<`) a custom meaning when applied to user-defined objects.
+
+2. Runtime Polymorphism (Dynamic Binding / Late Binding):
+   The function call is resolved at execution (run) time.
+   - Virtual Functions: Functions in a base class declared with the `virtual` keyword, which are overridden in derived classes. They ensure that the correct function is called when accessed through a base class pointer.
+   - Pure Virtual Function: A virtual function with no implementation in the base class, declared as `virtual void draw() = 0;`.
+   - Abstract Class: A class containing at least one pure virtual function. Abstract classes cannot be instantiated directly; they serve as templates for derived classes to implement the required interface.
+
+--------------------------------------------------------------------------------
+Sample Code
+--------------------------------------------------------------------------------
+
+### Sample 1: Compile-Time Polymorphism (Function & Operator Overloading)
+This example shows function overloading (same method, different types) and operator overloading (defining `+` for adding two `Complex` number objects).
+
+```cpp
+#include <iostream>
+
+class PrintData {
+public:
+    // Function Overloading
+    void print(int i) {
+        std::cout << "Printing integer: " << i << std::endl;
+    }
+    void print(double f) {
+        std::cout << "Printing float: " << f << std::endl;
+    }
+};
+
+class Complex {
+private:
+    double real, imag;
+
+public:
+    Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+
+    // Overloading the '+' operator
+    Complex operator + (const Complex& obj) {
+        Complex temp;
+        temp.real = real + obj.real;
+        temp.imag = imag + obj.imag;
+        return temp;
+    }
+
+    void display() {
+        std::cout << real << " + " << imag << "i" << std::endl;
+    }
+};
+
+int main() {
+    PrintData pd;
+    pd.print(5);     // Calls print(int)
+    pd.print(5.5);   // Calls print(double)
+
+    Complex c1(3.0, 4.0), c2(1.5, 2.5);
+    Complex c3 = c1 + c2; // Calls overloaded operator+
+    std::cout << "c1 + c2 = ";
+    c3.display();
+
+    return 0;
+}
+```
+
+### Sample 2: Runtime Polymorphism (Virtual Functions and Abstract Classes)
+This example demonstrates an abstract base class `Shape` with a pure virtual function `draw()`. Polymorphism allows a base class pointer to call different implementations of `draw()`.
+
+```cpp
+#include <iostream>
+
+// Abstract Class (cannot be instantiated)
+class Shape {
+public:
+    // Pure Virtual Function
+    virtual void draw() = 0;
+
+    // Virtual Destructor (essential when deleting derived classes via base pointer)
+    virtual ~Shape() {}
+};
+
+class Circle : public Shape {
+public:
+    void draw() override {
+        std::cout << "Drawing a Circle!" << std::endl;
+    }
+};
+
+class Square : public Shape {
+public:
+    void draw() override {
+        std::cout << "Drawing a Square!" << std::endl;
+    }
+};
+
+int main() {
+    // Shape s; // ERROR: Shape is abstract
+
+    // Base class pointers pointing to derived objects
+    Shape* s1 = new Circle();
+    Shape* s2 = new Square();
+
+    s1->draw(); // Outputs: Drawing a Circle!
+    s2->draw(); // Outputs: Drawing a Square!
+
+    // Cleanup
+    delete s1;
+    delete s2;
+
+    return 0;
+}
+```

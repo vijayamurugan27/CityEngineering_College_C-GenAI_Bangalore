@@ -1,0 +1,67 @@
+Pure Virtual Function
+Simple Explanation
+
+A pure virtual function forces child classes to implement it.
+
+Syntax
+virtual void show() = 0;
+
+The =0 makes it pure virtual.
+
+Real-World Example
+Examination Rules
+
+College says:
+
+Every student must write exam
+
+How they write:
+
+Online
+Offline
+Computer Based
+
+depends on the student.
+
+But writing exam is mandatory.
+
+Program
+#include <iostream>
+using namespace std;
+
+class Shape
+{
+public:
+    virtual void draw() = 0;
+};
+
+class Circle : public Shape
+{
+public:
+    void draw()
+    {
+        cout << "Drawing Circle" << endl;
+    }
+};
+
+int main()
+{
+    Circle c;
+
+    c.draw();
+
+    return 0;
+}
+Output
+Drawing Circle
+Student Understanding
+
+Parent says:
+
+Every shape must draw itself
+
+Child decides:
+
+Circle Draw
+Rectangle Draw
+Triangle Draw

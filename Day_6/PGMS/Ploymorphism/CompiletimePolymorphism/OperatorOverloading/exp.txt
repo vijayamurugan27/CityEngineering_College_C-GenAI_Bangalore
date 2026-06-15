@@ -1,0 +1,22 @@
+Simple Explanation
+
+Operator Overloading means:
+
+Giving a new meaning to an existing operator.
+
+Real-World Example
+'+' Operator
+
+Normally:
+
+10 + 20 = 30
+
+But:
+
+"Hello" + "World"
+
+means join two strings.
+
+Same operator.
+
+Different behavior.

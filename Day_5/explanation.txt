@@ -1,0 +1,122 @@
+================================================================================
+Day 5: Inheritance in C++
+================================================================================
+
+--------------------------------------------------------------------------------
+Explanation for a 5-Year Old
+--------------------------------------------------------------------------------
+Imagine you have a daddy who is a super-fast runner. Because you are his child, you inherit his fast legs! You don't have to practice running to get those legs; you get them automatically. That is "Inheritance"!
+
+In C++:
+- The daddy is the "Base Class" or "Parent Class".
+- The child is the "Derived Class" or "Child Class".
+
+There are different family trees:
+- Single: One parent, one child.
+- Multilevel: Grandparent -> Parent -> Child.
+- Multiple: Two parents have one child (inheriting traits from both!).
+- Hierarchical: One parent has many children.
+- Hybrid: A mix of everything!
+
+Constructor Order: When building a house, you must build the foundation (Parent) before you can paint the roof (Child). So, the parent class constructor runs first, and then the child class constructor runs!
+
+--------------------------------------------------------------------------------
+Technical Explanation
+--------------------------------------------------------------------------------
+Inheritance is a fundamental pillar of OOP where a new class (derived/child class) acquires the attributes and methods of an existing class (base/parent class). It promotes code reusability.
+
+1. Types of Inheritance:
+   - Single Inheritance: One derived class inherits from one base class.
+   - Multiple Inheritance: One derived class inherits from two or more base classes (e.g., `class Child : public ParentA, public ParentB`).
+   - Multilevel Inheritance: A class is derived from another derived class (e.g., `class C : public B` where `class B : public A`).
+   - Hierarchical Inheritance: Multiple derived classes inherit from a single base class.
+   - Hybrid Inheritance: A combination of two or more types of inheritance.
+
+2. Access Modifier `protected`:
+   Members declared as `protected` cannot be accessed from outside the class (just like `private`), but they CAN be accessed by any derived class.
+
+3. Constructor and Destructor Execution Order:
+   - When a derived class object is created, the base class constructor is executed first, followed by the derived class constructor.
+   - When the object is destroyed, the destructors are executed in the exact reverse order: derived class destructor first, then base class destructor.
+
+--------------------------------------------------------------------------------
+Sample Code
+--------------------------------------------------------------------------------
+
+### Sample 1: Single and Multilevel Inheritance with `protected` Access
+This example demonstrates base class attributes being accessed by derived classes and further inherited down a chain.
+
+```cpp
+#include <iostream>
+#include <string>
+
+// Base Class (Grandparent/Parent)
+class Animal {
+protected:
+    std::string species; // Accessible by derived classes, hidden from main()
+
+public:
+    void setSpecies(std::string spec) {
+        species = spec;
+    }
+};
+
+// Derived Class (Single Inheritance)
+class Mammal : public Animal {
+public:
+    void breathe() {
+        std::cout << "This " << species << " is breathing air." << std::endl;
+    }
+};
+
+// Further Derived Class (Multilevel Inheritance)
+class Dog : public Mammal {
+public:
+    void bark() {
+        std::cout << "The dog (" << species << ") says: Woof! Woof!" << std::endl;
+    }
+};
+
+int main() {
+    Dog myDog;
+    myDog.setSpecies("Canine"); // Inherited from Animal
+    myDog.breathe();            // Inherited from Mammal
+    myDog.bark();               // Defined in Dog
+    return 0;
+}
+```
+
+### Sample 2: Multiple Inheritance and Constructor Execution Order
+This example shows how a class can inherit from multiple parent classes and illustrates the order in which constructors and destructors execute.
+
+```cpp
+#include <iostream>
+
+class Engine {
+public:
+    Engine() { std::cout << "Engine Constructor called." << std::endl; }
+    ~Engine() { std::cout << "Engine Destructor called." << std::endl; }
+};
+
+class Wheels {
+public:
+    Wheels() { std::cout << "Wheels Constructor called." << std::endl; }
+    ~Wheels() { std::cout << "Wheels Destructor called." << std::endl; }
+};
+
+// Child inheriting from both Engine and Wheels
+class Car : public Engine, public Wheels {
+public:
+    Car() { std::cout << "Car Constructor called." << std::endl; }
+    ~Car() { std::cout << "Car Destructor called." << std::endl; }
+};
+
+int main() {
+    std::cout << "Creating Car object:" << std::endl;
+    {
+        Car myCar;
+    } // Car goes out of scope here: destructors will execute in reverse order
+    std::cout << "Car object destroyed." << std::endl;
+    return 0;
+}
+```

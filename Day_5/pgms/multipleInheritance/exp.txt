@@ -1,0 +1,67 @@
+Multiple Inheritance
+Simple Explanation
+
+One child inherits from multiple parents.
+
+Real-World Example
+
+Imagine a student learns:
+
+Mathematics from Teacher1
+Science from Teacher2
+
+Knowledge comes from multiple sources.
+
+Diagram
+Teacher1    Teacher2
+      \      /
+       \    /
+       Student
+Program
+#include <iostream>
+using namespace std;
+
+class Teacher1
+{
+public:
+    void math()
+    {
+        cout << "Math Knowledge" << endl;
+    }
+};
+
+class Teacher2
+{
+public:
+    void science()
+    {
+        cout << "Science Knowledge" << endl;
+    }
+};
+
+class Student : public Teacher1, public Teacher2
+{
+};
+
+int main()
+{
+    Student s;
+
+    s.math();
+    s.science();
+
+    return 0;
+}
+
+
+Output
+
+        Math Knowledge
+        Science Knowledge
+
+
+Student Understanding
+
+        One Child
+        Gets
+        Many Parents' Properties

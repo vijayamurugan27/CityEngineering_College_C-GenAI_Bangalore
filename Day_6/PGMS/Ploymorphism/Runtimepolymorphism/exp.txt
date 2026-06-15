@@ -1,0 +1,59 @@
+RUNTIME POLYMORPHISM
+Simple Explanation
+
+Decision is taken while program is running.
+
+Compiler doesn't know beforehand.
+
+Real-World Example
+Remote Control
+
+The same remote can control:
+
+        TV
+        AC
+        Projector
+
+Depending on what device is connected.
+
+Decision happens at runtime.
+
+1) virtual function.
+A virtual function allows a child class function to replace
+ the parent class function.
+ Dog → Bark
+Cat → Meow
+Cow → Moo
+
+2) Abstract class.
+An Abstract Class is an incomplete class.
+It is only used as a blueprint.
+
+Blueprint tells:
+
+        Rooms
+        Doors
+        Windows
+
+3) Pure Virtual Function
+
+A pure virtual function forces child classes to implement it.
+
+virtual void show() = 0;
+
+College says:
+
+        Every student must write exam
+
+How they write:
+
+        Online
+        Offline
+        Computer Based
+
+depends on the student.
+
+But writing exam is mandatory.
+
+
+
