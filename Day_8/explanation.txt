@@ -1,0 +1,263 @@
+================================================================================
+Day 8: File Handling + Mini Project
+================================================================================
+
+--------------------------------------------------------------------------------
+Explanation for a 5-Year Old
+--------------------------------------------------------------------------------
+Imagine you have a magic notebook.
+Normally, when you turn off a computer, it forgets everything you did, like a clean drawing board. But "File Handling" is like writing your story in the magic notebook and closing it. When you open the notebook tomorrow, all your drawings and stories are still there!
+- Writing is like drawing a new picture in the notebook (`ofstream`).
+- Reading is like looking at the picture you drew yesterday (`ifstream`).
+
+"Exception Handling" is like a safety net. If you are balancing a cup of water, and you start to slip, instead of the cup breaking and spilling water everywhere, you have a helper who catches the cup before it hits the ground (catching an error before the program crashes!).
+- **Throw**: "Uh oh! I'm falling!"
+- **Try**: "Let me try to walk with the cup."
+- **Catch**: The helper catches the cup.
+
+Our **Mini Project** is building a Toy Library. You can:
+- Add a new toy book (Create).
+- Look at all books (Read).
+- Change a book's name (Update).
+- Throw a broken book away (Delete).
+And all of this will be saved in our magic notebook file so we don't lose our list!
+
+--------------------------------------------------------------------------------
+Technical Explanation
+--------------------------------------------------------------------------------
+Day 8 brings together file input/output (I/O), exception handling, and a consolidative Mini Project.
+
+1. File Handling:
+   Uses the `<fstream>` library to read and write data to/from disk files.
+   - `std::ofstream`: Stream class to write on files.
+   - `std::ifstream`: Stream class to read from files.
+   - `std::fstream`: Stream class to both read and write.
+   - Standard operations: `open()`, `close()`, stream insertion (`<<`), and stream extraction (`>>`).
+
+2. Exception Handling:
+   Provides a way to transfer control from one part of a program to another when an error occurs.
+   - `try`: Identifies a block of code in which exceptions might be thrown.
+   - `throw`: Signals the occurrence of an anomalous situation (exception).
+   - `catch`: Code block that handles the thrown exception.
+   - Custom Exception: Inheriting from `std::exception` and overriding the `what()` method to define custom error messages.
+
+3. Mini Project: Library Management System (CRUD with File Storage)
+   Consolidates OOP concepts (Classes, Objects, Encapsulation, Vectors, File Handling) into a system that performs Create, Read, Update, and Delete operations on book records and saves them to a file.
+
+--------------------------------------------------------------------------------
+Sample Code
+--------------------------------------------------------------------------------
+
+### Sample 1: File Reading and Writing
+This program writes text to a file and reads it back, printing it to the console.
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    // 1. Writing to a File
+    std::ofstream outFile("example.txt");
+    if (outFile.is_open()) {
+        outFile << "Line 1: Learning C++ is fun!\n";
+        outFile << "Line 2: Day 8 explores files and exceptions.\n";
+        outFile.close();
+        std::cout << "Successfully written to file." << std::endl;
+    } else {
+        std::cout << "Unable to open file for writing!" << std::endl;
+    }
+
+    // 2. Reading from a File
+    std::ifstream inFile("example.txt");
+    std::string line;
+    if (inFile.is_open()) {
+        std::cout << "Reading contents from file:" << std::endl;
+        while (getline(inFile, line)) {
+            std::cout << line << std::endl;
+        }
+        inFile.close();
+    } else {
+        std::cout << "Unable to open file for reading!" << std::endl;
+    }
+
+    return 0;
+}
+```
+
+### Sample 2: Exception Handling (Try, Catch, Throw)
+This program demonstrates division by zero exception handling and creating a custom exception.
+
+```cpp
+#include <iostream>
+#include <exception>
+
+// Custom Exception class
+class InsufficientFundsException : public std::exception {
+public:
+    const char* what() const noexcept override {
+        return "Transaction Failed: Insufficient funds in your account!";
+    }
+};
+
+double divide(double a, double b) {
+    if (b == 0) {
+        throw "Division by zero condition!"; // Throwing a string exception
+    }
+    return a / b;
+}
+
+int main() {
+    // 1. Handling basic division exception
+    try {
+        std::cout << "10 / 2 = " << divide(10, 2) << std::endl;
+        std::cout << "10 / 0 = " << divide(10, 0) << std::endl; // Will throw exception
+    }
+    catch (const char* msg) {
+        std::cerr << "Caught Exception: " << msg << std::endl;
+    }
+
+    // 2. Handling custom class exception
+    double balance = 50.0;
+    double withdrawAmount = 100.0;
+    try {
+        if (withdrawAmount > balance) {
+            throw InsufficientFundsException();
+        }
+        balance -= withdrawAmount;
+    }
+    catch (const InsufficientFundsException& e) {
+        std::cerr << "Caught Bank Exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+### Sample 3: Library Management System Mini Project
+This console application provides a fully functioning Library Management System demonstrating CRUD operations and file storage integration.
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+
+class Book {
+public:
+    int id;
+    std::string title;
+    std::string author;
+
+    Book(int i, std::string t, std::string a) : id(i), title(t), author(a) {}
+
+    // Serialize object to file-friendly line format
+    void saveToFile(std::ofstream &file) const {
+        file << id << "," << title << "," << author << "\n";
+    }
+};
+
+class Library {
+private:
+    std::vector<Book> books;
+    std::string dbFile = "library_data.txt";
+
+    // Load data from file during library startup
+    void loadBooks() {
+        books.clear();
+        std::ifstream file(dbFile);
+        if (!file.is_open()) return;
+
+        std::string line;
+        while (getline(file, line)) {
+            size_t pos1 = line.find(',');
+            size_t pos2 = line.find(',', pos1 + 1);
+            if (pos1 != std::string::npos && pos2 != std::string::npos) {
+                int id = std::stoi(line.substr(0, pos1));
+                std::string title = line.substr(pos1 + 1, pos2 - pos1 - 1);
+                std::string author = line.substr(pos2 + 1);
+                books.push_back(Book(id, title, author));
+            }
+        }
+        file.close();
+    }
+
+    // Save entire vector to file
+    void saveBooks() {
+        std::ofstream file(dbFile);
+        for (const auto &book : books) {
+            book.saveToFile(file);
+        }
+        file.close();
+    }
+
+public:
+    Library() { loadBooks(); }
+
+    // Create (Add)
+    void addBook(int id, std::string title, std::string author) {
+        books.push_back(Book(id, title, author));
+        saveBooks();
+        std::cout << "Book added successfully!" << std::endl;
+    }
+
+    // Read (List)
+    void listBooks() {
+        if (books.empty()) {
+            std::cout << "No books in the library." << std::endl;
+            return;
+        }
+        std::cout << "\n--- Library Catalog ---" << std::endl;
+        for (const auto &book : books) {
+            std::cout << "ID: " << book.id << " | Title: " << book.title << " | Author: " << book.author << std::endl;
+        }
+    }
+
+    // Update
+    void updateBook(int id, std::string newTitle, std::string newAuthor) {
+        for (auto &book : books) {
+            if (book.id == id) {
+                book.title = newTitle;
+                book.author = newAuthor;
+                saveBooks();
+                std::cout << "Book updated successfully!" << std::endl;
+                return;
+            }
+        }
+        std::cout << "Book ID not found!" << std::endl;
+    }
+
+    // Delete
+    void deleteBook(int id) {
+        for (auto it = books.begin(); it != books.end(); ++it) {
+            if (it->id == id) {
+                books.erase(it);
+                saveBooks();
+                std::cout << "Book deleted successfully!" << std::endl;
+                return;
+            }
+        }
+        std::cout << "Book ID not found!" << std::endl;
+    }
+};
+
+int main() {
+    Library myLibrary;
+    
+    std::cout << "1. Seeding Library with Books..." << std::endl;
+    myLibrary.addBook(101, "The C++ Programming Language", "Bjarne Stroustrup");
+    myLibrary.addBook(102, "Clean Code", "Robert C. Martin");
+    
+    myLibrary.listBooks();
+
+    std::cout << "\n2. Updating Book 102..." << std::endl;
+    myLibrary.updateBook(102, "Clean Code (2nd Edition)", "Robert C. Martin");
+    myLibrary.listBooks();
+
+    std::cout << "\n3. Deleting Book 101..." << std::endl;
+    myLibrary.deleteBook(101);
+    myLibrary.listBooks();
+
+    return 0;
+}
+```

@@ -1,0 +1,60 @@
+Array of Objects using Pointers
+Simple Explanation
+
+Instead of creating one object,
+
+create multiple objects dynamically.
+
+Real-World Example
+Classroom
+Student 1
+Student 2
+Student 3
+Student 4
+
+Many students.
+
+One class.
+
+Program
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    int roll;
+};
+
+int main()
+{
+    Student *ptr;
+
+    ptr = new Student[3];
+
+    ptr[0].roll = 101;
+    ptr[1].roll = 102;
+    ptr[2].roll = 103;
+
+    cout << ptr[0].roll << endl;
+    cout << ptr[1].roll << endl;
+    cout << ptr[2].roll << endl;
+
+    delete[] ptr;
+
+    return 0;
+}
+
+Output
+101
+102
+103
+
+Student Understanding
+new Student[3]
+
+Creates:
+
+Student 1
+Student 2
+Student 3

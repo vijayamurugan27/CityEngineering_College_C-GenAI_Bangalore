@@ -1,0 +1,51 @@
+Simple Explanation
+
+Writing means:
+
+        Program → File
+
+Store data in a file.
+
+Real-World Example
+Writing Attendance in Register
+
+Teacher writes student names into a register.
+
+Program
+
+        #include <iostream>
+        #include <fstream>
+
+        using namespace std;
+
+        int main()
+        {
+            ofstream file("student.txt");
+
+            file << "John" << endl;
+            file << "David" << endl;
+            file << "Priya" << endl;
+
+            file.close();
+
+            cout << "Data Saved";
+
+            return 0;
+        }
+
+Output
+    Data Saved
+
+student.txt
+
+        John
+        David
+        Priya
+
+Student Understanding
+
+    ofstream
+
+    Output File Stream
+
+    Program → File

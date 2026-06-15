@@ -1,0 +1,59 @@
+Dynamic Memory Allocation (new, delete)
+Simple Explanation
+
+Normally variables are created during compilation.
+
+int num = 10;
+
+Memory is automatically allocated.
+
+Sometimes we don't know how much memory we need beforehand.
+
+So we ask memory from the computer while the program is running.
+
+This is called:
+
+Dynamic Memory Allocation
+
+using:
+
+new
+delete
+Real-World Example
+Hotel Room Booking
+
+Imagine:
+
+Fixed Rooms = Static Memory
+
+Book Room When Needed
+Release Room After Checkout
+= Dynamic Memory
+Program
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int *ptr;
+
+    ptr = new int;
+
+    *ptr = 100;
+
+    cout << *ptr << endl;
+
+    delete ptr;
+
+    return 0;
+}
+Output
+100
+Student Understanding
+new
+ ↓
+Allocate Memory
+
+delete
+ ↓
+Release Memory

@@ -1,0 +1,42 @@
+Basic Algorithms
+Simple Explanation
+
+STL provides ready-made algorithms.
+
+No need to write complex logic.
+
+Real-World Example
+Calculator
+
+Instead of manually calculating:
+
+Addition
+Sorting
+Searching
+
+Use built-in functionality.
+
+Sorting Example
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+    vector<int> v={40,10,30,20};
+
+    sort(v.begin(),v.end());
+
+    for(int x:v)
+    {
+        cout<<x<<" ";
+    }
+}
+Output
+10 20 30 40
+Student Understanding
+sort()
+
+Automatically sorts data

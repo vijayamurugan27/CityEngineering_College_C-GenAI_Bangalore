@@ -1,0 +1,62 @@
+Reading from a File
+Simple Explanation
+
+Reading means:
+
+        File → Program
+
+Retrieve stored data.
+
+Real-World Example
+
+    Reading Notes from Notebook
+    You open your notebook and read yesterday's notes.
+
+Program
+
+        #include <iostream>
+        #include <fstream>
+
+        using namespace std;
+
+        int main()
+        {
+            ifstream file("student.txt");
+
+            string name;
+
+            while(file >> name)
+            {
+                cout << name << endl;
+            }
+
+            file.close();
+
+            return 0;
+        }
+
+Output
+
+    John
+    David
+    Priya
+
+Student Understanding
+
+        ifstream
+
+        Input File Stream
+
+        File → Program
+
+File Handling Flow
+
+        Program
+        |
+        Write
+        ↓
+        student.txt
+        ↑
+        Read
+        |
+        Program

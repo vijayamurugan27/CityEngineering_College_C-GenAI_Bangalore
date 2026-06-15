@@ -1,0 +1,62 @@
+Pointers to Objects
+Simple Explanation
+
+A pointer can store the address of an object.
+
+Real-World Example
+
+Imagine:
+
+Student = House
+
+Student Address = Pointer
+
+Instead of going directly to the house,
+
+we use the address.
+
+Program
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    string name;
+
+    void display()
+    {
+        cout << name;
+    }
+};
+
+int main()
+{
+    Student *ptr = new Student;
+
+    ptr->name = "John";
+
+    ptr->display();
+
+    delete ptr;
+
+    return 0;
+}
+Output
+John
+Student Understanding
+Object Access
+
+obj.name
+
+Pointer Object Access
+
+ptr->name
+
+Arrow operator:
+
+->
+
+means:
+
+Go to object through pointer

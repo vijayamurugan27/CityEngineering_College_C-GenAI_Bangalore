@@ -1,0 +1,71 @@
+try, catch, throw
+
+Simple Explanation
+
+try
+
+    Contains risky code.
+
+throw
+
+    Generates an error.
+
+catch
+
+    Handles the error.
+
+Real-World Example
+ATM Withdrawal
+
+        try
+        ↓
+        Withdraw Money
+
+        throw
+        ↓
+        Insufficient Balance
+
+        catch
+        ↓
+        Display Error Message
+
+
+Program
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    try
+    {
+        int age = 15;
+        if(age < 18)
+        {
+            throw age;
+        }
+        cout << "Eligible";
+    }
+    catch(int x)
+    {
+        cout << "Age must be above 18";
+    }
+    return 0;
+}
+
+Output
+    
+    Age must be above 18
+
+Student Understanding
+
+        try
+        ↓
+        Problem Happens
+
+        throw
+        ↓
+        Send Error
+
+        catch
+        ↓
+        Handle Error

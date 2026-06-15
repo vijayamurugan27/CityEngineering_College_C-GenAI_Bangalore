@@ -1,0 +1,551 @@
+File Handling
+Simple Explanation
+
+Normally, data stored in variables is lost when the program closes.
+
+File Handling allows us to:
+
+Save Data Permanently
+Read Data Later
+
+using files.
+
+Real-World Example
+Notebook
+
+Imagine:
+
+Memory Variable
+    ↓
+Temporary Memory
+
+Notebook
+    ↓
+Permanent Storage
+
+If you write notes in a notebook, they remain even after you leave the classroom.
+
+Files work the same way.
+
+2. Writing to a File
+Simple Explanation
+
+Writing means:
+
+Program → File
+
+Store data in a file.
+
+Real-World Example
+Writing Attendance in Register
+
+Teacher writes student names into a register.
+
+Program
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    ofstream file("student.txt");
+
+    file << "John" << endl;
+    file << "David" << endl;
+    file << "Priya" << endl;
+
+    file.close();
+
+    cout << "Data Saved";
+
+    return 0;
+}
+Output
+Data Saved
+student.txt
+John
+David
+Priya
+Student Understanding
+ofstream
+
+Output File Stream
+
+Program → File
+3. Reading from a File
+Simple Explanation
+
+Reading means:
+
+File → Program
+
+Retrieve stored data.
+
+Real-World Example
+Reading Notes from Notebook
+
+You open your notebook and read yesterday's notes.
+
+Program
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    ifstream file("student.txt");
+
+    string name;
+
+    while(file >> name)
+    {
+        cout << name << endl;
+    }
+
+    file.close();
+
+    return 0;
+}
+Output
+John
+David
+Priya
+Student Understanding
+ifstream
+
+Input File Stream
+
+File → Program
+File Handling Flow
+Program
+   |
+Write
+   ↓
+student.txt
+   ↑
+Read
+   |
+Program
+4. Exception Handling
+Simple Explanation
+
+Sometimes errors occur while running a program.
+
+Instead of crashing,
+
+we handle errors gracefully.
+
+This is called:
+
+Exception Handling
+Real-World Example
+Driving a Car
+
+Normally:
+
+Drive
+
+If tire punctures:
+
+Stop Safely
+Repair
+Continue
+
+instead of crashing.
+
+Exception Keywords
+try
+catch
+throw
+5. try, catch, throw
+Simple Explanation
+try
+
+Contains risky code.
+
+throw
+
+Generates an error.
+
+catch
+
+Handles the error.
+
+Real-World Example
+ATM Withdrawal
+try
+ ↓
+Withdraw Money
+
+throw
+ ↓
+Insufficient Balance
+
+catch
+ ↓
+Display Error Message
+Program
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    try
+    {
+        int age = 15;
+
+        if(age < 18)
+        {
+            throw age;
+        }
+
+        cout << "Eligible";
+    }
+
+    catch(int x)
+    {
+        cout << "Age must be above 18";
+    }
+
+    return 0;
+}
+Output
+Age must be above 18
+Student Understanding
+try
+ ↓
+Problem Happens
+
+throw
+ ↓
+Send Error
+
+catch
+ ↓
+Handle Error
+6. Custom Exceptions
+Simple Explanation
+
+We can create our own error messages.
+
+Real-World Example
+College Rules
+
+Instead of generic errors:
+
+Error
+
+College says:
+
+Attendance below 75%
+
+Specific message.
+
+Program
+#include <iostream>
+
+using namespace std;
+
+class InvalidMarks
+{
+};
+
+int main()
+{
+    try
+    {
+        int marks = -10;
+
+        if(marks < 0)
+        {
+            throw InvalidMarks();
+        }
+    }
+
+    catch(InvalidMarks)
+    {
+        cout << "Marks Cannot Be Negative";
+    }
+
+    return 0;
+}
+Output
+Marks Cannot Be Negative
+Student Understanding
+Own Error Class
+       ↓
+Custom Exception
+7. Mini Project
+Library Management System
+
+This is one of the best beginner projects because students already understand libraries.
+
+Real-World Example
+College Library
+
+Tasks:
+
+Add Book
+View Book
+Update Book
+Delete Book
+
+This is CRUD.
+
+CRUD Operations
+C → Create
+
+Add Record
+
+Add New Book
+R → Read
+
+View Record
+
+Display Book
+U → Update
+
+Modify Record
+
+Change Book Name
+D → Delete
+
+Remove Record
+
+Delete Book
+Library Class Example
+#include <iostream>
+
+using namespace std;
+
+class Book
+{
+public:
+    int id;
+    string title;
+
+    void input()
+    {
+        cin >> id >> title;
+    }
+
+    void display()
+    {
+        cout << id << " " << title << endl;
+    }
+};
+
+int main()
+{
+    Book b;
+
+    b.input();
+
+    b.display();
+
+    return 0;
+}
+Student Understanding
+Book
+ ↓
+Object
+
+Stores:
+
+ID
+Title
+8. File Storage Integration
+Simple Explanation
+
+Instead of storing books only in memory,
+
+save them into a file.
+
+Real-World Example
+Library Register
+
+When a new book arrives:
+
+Write Details
+Save Register
+
+Future librarian can read it.
+
+Example
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    ofstream file("books.txt");
+
+    file << "101 C++" << endl;
+    file << "102 Python" << endl;
+
+    file.close();
+}
+books.txt
+101 C++
+102 Python
+Student Understanding
+Book Object
+      ↓
+File
+
+Permanent Storage
+Complete Mini Project Flow
+Add Book
+    ↓
+Save To File
+
+Read Book
+    ↓
+Load From File
+
+Update Book
+    ↓
+Rewrite File
+
+Delete Book
+    ↓
+Remove From File
+9. Final Revision of OOP Concepts
+
+This is the most important revision slide for students.
+
+Class
+
+Blueprint
+
+Example
+Car Design
+Object
+
+Actual entity created from class.
+
+Example
+My Car
+Your Car
+Encapsulation
+
+Hide data.
+
+Example
+ATM Machine
+Abstraction
+
+Hide implementation.
+
+Example
+Driving a Car
+Inheritance
+
+Acquire parent properties.
+
+Example
+Father → Son
+Polymorphism
+
+One thing, many forms.
+
+Example
+Mobile Phone
+Constructor
+
+Runs automatically when object is created.
+
+Destructor
+
+Runs automatically when object is destroyed.
+
+Pointer
+
+Stores address.
+
+Example
+House Address
+Dynamic Memory
+
+Allocate memory during runtime.
+
+Example
+Hotel Room Booking
+Template
+
+Write once, use many types.
+
+Example
+Bottle Mould
+STL
+
+Ready-made C++ library.
+
+Example
+Toolbox
+Master Revision Table
+Topic	Meaning	Real-Life Example
+Class	Blueprint	House Plan
+Object	Real Instance	Actual House
+Encapsulation	Data Hiding	ATM
+Abstraction	Hide Details	Car Driving
+Inheritance	Acquire Features	Father → Son
+Polymorphism	Many Forms	Mobile Phone
+Constructor	Auto Initialization	Opening Shop
+Destructor	Auto Cleanup	Closing Shop
+Pointer	Address Holder	House Address
+Dynamic Memory	Runtime Memory	Hotel Booking
+Template	Generic Code	Bottle Mould
+STL	Ready-Made Library	Toolbox
+File Handling	Permanent Storage	Notebook
+Exception Handling	Error Management	Vehicle Repair
+CRUD	Create Read Update Delete	Library Register
+One-Line Memory Trick for Final Viva
+Class → Blueprint
+
+Object → Real Thing
+
+Encapsulation → Hide Data
+
+Abstraction → Hide Complexity
+
+Inheritance → Reuse Code
+
+Polymorphism → Many Behaviors
+
+Pointer → Address
+
+new → Allocate Memory
+
+delete → Release Memory
+
+Template → Generic Code
+
+STL → Ready-Made Components
+
+File → Permanent Storage
+
+Exception → Handle Errors
+
+CRUD → Create Read Update Delete
+Final Classroom Demonstration
+
+Use a Library Management System to connect every topic:
+
+Book Class                → Class & Object
+Private Book Details      → Encapsulation
+Library Item Blueprint    → Abstraction
+EBook inherits Book       → Inheritance
+Display() Overriding      → Polymorphism
+Book Objects              → Objects
+new Book()                → Dynamic Memory
+vector<Book>              → STL
+books.txt                 → File Handling
+try-catch                 → Exception Handling
+Add/View/Edit/Delete      → CRUD
+
+This single project helps students see how all C++ OOP concepts work together in a real application.

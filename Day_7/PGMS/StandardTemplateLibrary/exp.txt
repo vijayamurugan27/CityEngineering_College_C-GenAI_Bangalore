@@ -1,0 +1,26 @@
+STL (Standard Template Library)
+Simple Explanation
+
+STL is a ready-made toolbox provided by C++.
+
+Instead of building everything ourselves,
+
+we use ready-made containers.
+
+Real-World Example
+Kitchen Toolbox
+
+Instead of making:
+
+Knife
+Spoon
+Plate
+
+from scratch,
+
+we use ready-made tools.
+
+STL Components
+Containers
+Algorithms
+Iterators

@@ -1,0 +1,28 @@
+File Handling
+Simple Explanation
+
+Normally, data stored in variables is lost when the program closes.
+
+File Handling allows us to:
+
+        Save Data Permanently
+        Read Data Later
+
+using files.
+
+Real-World Example
+Notebook
+
+Imagine:
+
+        Memory Variable
+            ↓
+        Temporary Memory
+
+        Notebook
+            ↓
+        Permanent Storage
+
+If you write notes in a notebook, they remain even after you leave the classroom.
+
+Files work the same way.

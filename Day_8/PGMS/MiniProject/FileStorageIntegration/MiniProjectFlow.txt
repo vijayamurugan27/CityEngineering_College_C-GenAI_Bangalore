@@ -1,0 +1,17 @@
+Complete Mini Project Flow
+
+Add Book
+    ↓
+Save To File
+
+Read Book
+    ↓
+Load From File
+
+Update Book
+    ↓
+Rewrite File
+
+Delete Book
+    ↓
+Remove From File

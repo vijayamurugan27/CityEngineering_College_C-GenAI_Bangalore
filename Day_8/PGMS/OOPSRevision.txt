@@ -1,0 +1,117 @@
+Final Revision of OOP Concepts
+
+This is the most important revision slide for students.
+
+Class
+    Blueprint
+Example
+    Car Design
+
+Object
+    Actual entity created from class.
+
+Example
+    My Car
+    Your Car
+
+Encapsulation
+    Hide data.
+Example
+    ATM Machine
+
+Abstraction
+    Hide implementation.
+Example
+    Driving a Car
+
+Inheritance
+    Acquire parent properties.
+Example
+    Father → Son
+
+Polymorphism
+    One thing, many forms.
+Example
+    Mobile Phone
+
+Constructor
+    Runs automatically when object is created.
+
+Destructor
+    Runs automatically when object is destroyed.
+
+Pointer
+    Stores address.
+Example
+    House Address
+
+Dynamic Memory
+
+    Allocate memory during runtime.
+Example
+    Hotel Room Booking
+
+Template
+
+    Write once, use many types.
+Example
+    Bottle Mould
+
+STL
+
+    Ready-made C++ library.
+Example
+    Toolbox
+
+Master Revision Table
+
+        Topic	        Meaning	            Real-Life Example
+        Class	        Blueprint	        House Plan
+        Object	        Real Instance	    Actual House
+        Encapsulation	Data Hiding	        ATM
+        Abstraction	    Hide Details	    Car Driving
+        Inheritance	    Acquire Features	Father → Son
+        Polymorphism	Many Forms	        Mobile Phone
+        Constructor	    Auto Initialization	Opening Shop
+        Destructor	    Auto Cleanup	    Closing Shop
+        Pointer	        Address Holder	    House Address
+        Dynamic Memory	Runtime Memory	    Hotel Booking
+        Template	    Generic Code	    Bottle Mould
+        STL	            Ready-Made Library	Toolbox
+        File Handling	Permanent Storage	Notebook
+        Exception Handling	Error Management	Vehicle Repair
+        CRUD	        Create Read Update Delete	Library Register
+
+One-Line Memory Trick for Final Viva
+
+        Class → Blueprint
+        Object → Real Thing
+        Encapsulation → Hide Data
+        Abstraction → Hide Complexity
+        Inheritance → Reuse Code
+        Polymorphism → Many Behaviors
+        Pointer → Address
+        new → Allocate Memory
+        delete → Release Memory
+        Template → Generic Code
+        STL → Ready-Made Components
+        File → Permanent Storage
+        Exception → Handle Errors
+        CRUD → Create Read Update Delete
+
+Final Classroom Demonstration
+
+Use a Library Management System to connect every topic:
+
+
+        Book Class                → Class & Object
+        Private Book Details      → Encapsulation
+        Library Item Blueprint    → Abstraction
+        EBook inherits Book       → Inheritance
+        Display() Overriding      → Polymorphism
+        Book Objects              → Objects
+        new Book()                → Dynamic Memory
+        vector<Book>              → STL
+        books.txt                 → File Handling
+        try-catch                 → Exception Handling
+        Add/View/Edit/Delete      → CRUD

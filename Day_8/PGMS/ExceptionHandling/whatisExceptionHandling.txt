@@ -1,0 +1,31 @@
+Exception Handling
+
+Simple Explanation
+
+Sometimes errors occur while running a program.
+
+Instead of crashing,
+we handle errors gracefully.
+
+This is called:
+
+        Exception Handling
+
+Real-World Example
+Driving a Car Normally:
+
+        Drive
+
+If tire punctures:
+
+        Stop Safely
+        Repair
+        Continue
+
+instead of crashing.
+
+Exception Keywords
+
+        try
+        catch
+        throw

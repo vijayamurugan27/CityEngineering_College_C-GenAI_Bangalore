@@ -1,0 +1,79 @@
+Library Management System
+
+This is one of the best beginner projects because students already understand libraries.
+
+Real-World Example
+
+College Library
+
+Tasks:
+
+    Add Book
+    View Book
+    Update Book
+    Delete Book
+
+This is CRUD.
+
+        CRUD Operations
+
+            C → Create
+
+            Add Record
+
+        Add New Book
+            R → Read
+
+            View Record
+
+        Display Book
+
+        U → Update
+
+            Modify Record
+
+                Change Book Name
+
+        D → Delete
+
+            Remove Record
+
+                    Delete Book
+
+Library Class Example
+
+#include <iostream>
+using namespace std;
+class Book
+{
+public:
+    int id;
+    string title;
+    void input()
+    {
+        cin >> id >> title;
+    }
+    void display()
+    {
+        cout << id << " " << title << endl;
+    }
+};
+int main()
+{
+    Book b;
+    b.input();
+    b.display();
+    return 0;
+}
+
+
+Student Understanding
+
+        Book
+        ↓
+        Object
+
+        Stores:
+
+        ID
+        Title

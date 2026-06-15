@@ -1,0 +1,45 @@
+File Storage Integration
+Simple Explanation
+
+Instead of storing books only in memory,
+
+save them into a file.
+
+Real-World Example
+
+Library Register
+
+When a new book arrives:
+
+    Write Details
+    Save Register
+
+Future librarian can read it.
+
+Example
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ofstream file("books.txt");
+
+    file << "101 C++" << endl;
+    file << "102 Python" << endl;
+    file.close();
+}
+
+books.txt
+
+        101 C++
+        102 Python
+
+Student Understanding
+
+        Book Object
+            ↓
+        File
+
+        Permanent Storage

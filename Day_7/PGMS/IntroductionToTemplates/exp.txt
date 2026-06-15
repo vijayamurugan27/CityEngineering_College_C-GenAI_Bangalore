@@ -1,0 +1,20 @@
+Simple Explanation
+
+Templates allow us to write code once and use it for different data types.
+
+Real-World Example
+Water Bottle Mould
+
+One mould can create:
+
+500 ml bottle
+1 L bottle
+2 L bottle
+
+Same design.
+
+Different sizes.
+
+Student Understanding
+Write Once
+Use Many Times

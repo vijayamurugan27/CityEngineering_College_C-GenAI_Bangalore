@@ -1,0 +1,54 @@
+Complete Revision Table
+
+Topic	            Meaning	                Real-Life Example
+Dynamic Memory	    Allocate memory during runtime,	Hotel Room Booking
+new	                Create memory	        Book Room
+delete	            Release memory	        Checkout
+Pointer to Object	Address of object	    House Address
+Array of Objects	Multiple objects	    Classroom Students
+Function Template	Generic function	    Calculator
+Class Template	    Generic class	        Storage Box
+Vector	            Dynamic Array	        WhatsApp Group
+List	            Linked Structure	    Train Compartments
+Stack	            LIFO	                Plate Stack
+Queue	            FIFO	                Ticket Queue
+Iterator	        Traverse container	    TV Remote
+Algorithm	        Ready-made logic	    Calculator Functions
+
+
+One-Line Memory Trick for Students
+
+        Dynamic Memory → Create Memory When Needed
+
+        new      → Allocate
+        delete   → Release
+
+        Pointer → Address Holder
+
+        Templates → Write Once, Use Many Times
+
+        Vector → Dynamic Array
+
+        List → Easy Insert/Delete
+
+        Stack → LIFO
+        (Last In First Out)
+
+        Queue → FIFO
+        (First In First Out)
+
+        Iterator → Move Through Data
+
+        Algorithms → Ready-Made Functions
+
+
+Classroom Demonstration Trick
+
+Bring four objects to class:
+
+        Books Stack       → Stack
+        Students Line     → Queue
+        Train Diagram     → List
+        WhatsApp Group    → Vector
+
+Students usually remember STL containers instantly when they associate them with these everyday examples.

@@ -1,0 +1,42 @@
+Queue
+Simple Explanation
+
+Queue follows:
+
+FIFO
+
+First In
+First Out
+Real-World Example
+Bus Ticket Queue
+
+First person entering line
+
+gets ticket first.
+
+Program
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+int main()
+{
+    queue<int> q;
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    cout << q.front();
+}
+Output
+10
+Student Understanding
+10
+20
+30
+
+Remove
+
+10 First
