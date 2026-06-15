@@ -1,0 +1,90 @@
+DESTRUCTOR
+
+Now objects are created.
+But what happens when object dies?
+Cleaning work is needed.
+
+That cleaning work is done by:
+
+Destructor
+    What is Destructor?
+    A special function that runs automatically when object is destroyed.
+
+Child Example
+
+    Imagine playing with toys.
+        After playing:
+            Put toys back into box
+            Clean the room
+
+Cleanup work = Destructor
+
+Important Rules
+Rule	                Meaning
+Same name as class	    Yes
+Uses ~ symbol	        Yes
+No return type	        Yes
+No parameters	        Yes
+
+Destructor Syntax
+    ~ClassName()
+    {
+    }
+
+Simple Destructor Example
+
+        #include <iostream>
+        using namespace std;
+        class Test
+        {
+        public:
+            Test()
+            {
+                cout << "Constructor Called" << endl;
+            }
+            ~Test()
+            {
+                cout << "Destructor Called" << endl;
+            }
+        };
+
+        int main()
+        {
+            Test t1;
+
+            return 0;
+        }
+Output
+    Constructor Called
+    Destructor Called
+
+Understanding
+    When object created:
+            Constructor runs
+
+    When program ends:
+            Object destroyed
+            ↓
+            Destructor runs
+
+REAL MEMORY MANAGEMENT IDEA
+    Why Destructor Important?
+
+        Programs use memory.
+        Unused memory should be cleaned.
+
+        Otherwise:
+
+                Memory gets wasted
+                System becomes slow
+
+Destructor helps clean memory.
+
+Child Example
+
+    Imagine:
+            You keep toys everywhere
+            Never clean
+            Room becomes full
+
+Same for computer memory.

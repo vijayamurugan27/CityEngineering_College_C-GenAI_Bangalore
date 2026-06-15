@@ -1,0 +1,4 @@
+Destructor Syntax
+    ~ClassName()
+    {
+    }

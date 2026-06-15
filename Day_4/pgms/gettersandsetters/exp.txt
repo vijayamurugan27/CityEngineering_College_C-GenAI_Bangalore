@@ -1,0 +1,69 @@
+Simple Explanation
+
+Sometimes we want to access private data safely.
+
+For that we use:
+
+Getter
+
+Gets (reads) the value.
+
+Setter
+
+Sets (updates) the value.
+
+Real-World Example
+Mobile Phone Password
+
+You cannot directly modify the password stored inside the phone.
+
+Instead:
+
+Change Password option → Setter
+View Profile option → Getter
+Simple Program
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+    int age;
+
+public:
+    void setAge(int a)
+    {
+        age = a;
+    }
+
+    int getAge()
+    {
+        return age;
+    }
+};
+
+int main()
+{
+    Student s;
+
+    s.setAge(20);
+
+    cout << "Age = " << s.getAge();
+
+    return 0;
+}
+
+---------------------------------------------------
+Output
+    Age = 20
+
+Student Understanding
+    setAge() → Setter
+    getAge() → Getter
+
+Private data can be accessed safely.
+
+
+--------------------------------------------------------------
+
+

@@ -1,0 +1,66 @@
+Friend Function
+
+Simple Explanation
+
+    Normally private members cannot be accessed outside the class.
+
+    But a friend function gets special permission to access private data.
+
+Real-World Example
+
+Imagine:
+
+Principal Room
+
+Normally students cannot enter.
+
+But:
+
+Office Staff
+
+has special permission.
+
+Friend Function works the same way.
+
+Simple Program
+
+
+        #include <iostream>
+        using namespace std;
+
+        class Test
+        {
+        private:
+            int num = 100;
+
+        public:
+            friend void display(Test t);
+        };
+
+        void display(Test t)
+        {
+            cout << "Number = " << t.num;
+        }
+
+        int main()
+        {
+            Test obj;
+
+            display(obj);
+
+            return 0;
+        }
+
+
+Output
+    Number = 100
+
+Student Understanding
+
+        display()
+        ↓
+        Not inside class
+        ↓
+        Still accesses private data
+        ↓
+        Because it is a friend

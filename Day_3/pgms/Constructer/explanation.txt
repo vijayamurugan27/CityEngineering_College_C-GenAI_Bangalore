@@ -1,0 +1,96 @@
+Constructors and Destructors in C++
+
+(Simple Explanation Like Teaching a 5-Year-Old 😊)
+
+First Understand This
+
+    Imagine you bought a toy robot.
+
+    When the robot is created:
+
+        It gets a name
+        It gets a color
+        It says “Hello!”
+
+This setup work happens automatically.
+
+In C++, this automatic setup is done using a:
+
+CONSTRUCTOR
+
+    What is a Constructor?
+
+    A constructor is a special function that runs automatically
+     when an object is created.
+
+Real-Life Example
+    You buy a mobile phone
+    ↓
+    Phone starts automatically
+    ↓
+    Setup screen appears
+    ↓
+    Initialization happens
+
+Same in C++:
+
+    Object created
+    ↓
+    Constructor runs automatically
+    ↓
+    Object gets initialized
+
+
+Important Rules of Constructor
+
+    Rule	                            Meaning
+    Constructor name = class name	    Same name
+    No return type	                    Not even void
+    Runs automatically	                No need to call manually
+
+BASIC Constructor Example
+
+    #include <iostream>
+    using namespace std;
+
+    class Car
+    {
+    public:
+        Car()
+        {
+            cout << "Car Started!" << endl;
+        }
+    };
+
+    int main()
+    {
+        Car c1;
+
+        return 0;
+    }
+
+Output
+
+Car Started!
+
+Why Did It Print Automatically?
+
+Because:
+
+    Car()
+
+        is a constructor.
+
+It runs automatically when:
+
+    Car c1;
+
+        creates the object.
+
+TYPES OF CONSTRUCTORS
+
+There are mainly 3 important types:
+
+    Default Constructor
+    Parameterized Constructor
+    Copy Constructor

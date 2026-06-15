@@ -1,0 +1,4 @@
+copyConstructor Syntax:
+
+
+ClassName(const ClassName &obj)

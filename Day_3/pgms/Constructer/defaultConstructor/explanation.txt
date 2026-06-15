@@ -1,0 +1,51 @@
+DEFAULT CONSTRUCTOR
+
+What is it?
+A constructor with NO parameters.
+
+Think Like a Child
+
+    Imagine a toy factory.
+    If no color is chosen:
+
+        Factory gives default color = RED
+
+    Same idea.
+
+Example
+
+#include <iostream>
+using namespace std;
+
+class Ball
+{
+public:
+    Ball()
+    {
+        cout << "Red Ball Created!" << endl;
+    }
+};
+
+int main()
+{
+    Ball b1;
+
+    return 0;
+}
+
+Output
+    Red Ball Created!
+Key Point
+    No values passed.
+
+    Ball b1;
+
+Still constructor runs.
+
+Real Understanding
+
+    No input given
+    ↓
+    Constructor still works
+    ↓
+    Default setup happens

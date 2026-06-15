@@ -1,0 +1,66 @@
+COPY CONSTRUCTOR
+
+What is it?
+    Copies one object into another object.
+
+Child Example
+
+    Imagine:
+        One chocolate box exists
+        ↓
+        Machine makes exact duplicate copy
+
+That is copy constructor.
+
+Example
+
+        #include <iostream>
+        using namespace std;
+
+        class Box
+        {
+        public:
+            int value;
+
+            Box(int v)
+            {
+                value = v;
+            }
+
+            // Copy Constructor
+            Box(const Box &b)
+            {
+                value = b.value;
+            }
+
+            void show()
+            {
+                cout << "Value: " << value << endl;
+            }
+        };
+
+        int main()
+        {
+            Box b1(100);
+            Box b2 = b1;
+            b2.show();
+            return 0;
+        }
+
+Output
+    Value: 100
+
+Understanding Slowly
+    Box b2 = b1;
+
+means:
+    Make a copy of b1 into b2
+
+Copy constructor does that work.
+
+Important Syntax
+    ClassName(const ClassName &obj)
+
+Why Use & ?
+    Because we do NOT want to copy again and again.
+    It saves memory.

@@ -1,0 +1,52 @@
+Understanding Step-by-Step
+
+    Constructor
+        ptr = new int;
+            creates memory.
+
+    Destructor
+        delete ptr;
+            cleans memory.
+
+
+What happens if destructor is NOT used?
+
+Answer:
+        Memory Leak happens
+
+What is Memory Leak?
+        Unused memory remains occupied.
+        Program wastes RAM.
+
+FULL LIFE CYCLE OF OBJECT
+
+        Object Created
+        ↓
+        Constructor Runs
+        ↓
+        Object Used
+        ↓
+        Object Destroyed
+        ↓
+        Destructor Runs
+
+Easy Comparison Table
+                
+        Constructor	            Destructor
+
+        Creates object	        Destroys object
+        Initializes data	    Cleans memory
+        Same name as class	    Same name with ~
+        Can have parameters	    Cannot have parameters
+        Multiple allowed	    Only one destructor
+
+SUPER SIMPLE MEMORY TRICK
+
+        Concept	                        Memory Trick
+
+        Constructor	                    Birth of object
+        Destructor	                    Death/Cleanup of object
+        Default Constructor	            No input setup
+        Parameterized Constructor	    Setup using input
+        Copy Constructor	            Xerox copy
+        Constructor Overloading	        Multiple setup styles

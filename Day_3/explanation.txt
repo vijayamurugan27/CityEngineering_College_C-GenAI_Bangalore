@@ -1,0 +1,142 @@
+================================================================================
+Day 3: Constructors and Destructors
+================================================================================
+
+--------------------------------------------------------------------------------
+Explanation for a 5-Year Old
+--------------------------------------------------------------------------------
+Imagine you have a magic toy factory.
+A "Constructor" is the magic button that builds your toy car and paints it immediately when it is born. 
+- If you don't choose a color, the factory paints it grey by default (Default Constructor).
+- If you tell the factory, "Make a Red Car," it makes a Red Car (Parameterized Constructor).
+- If you want a car that looks EXACTLY like your friend's car, the factory copies your friend's car (Copy Constructor).
+
+A "Destructor" is like a clean-up helper. When you are done playing with your toy and want to throw it away, the helper cleans up the toy pieces and puts them back in the box so you have room to play with other things (Memory Management).
+
+--------------------------------------------------------------------------------
+Technical Explanation
+--------------------------------------------------------------------------------
+1. Constructors:
+   Special member functions that are called automatically when an object of a class is created. They have the same name as the class and do not have a return type.
+   - Default Constructor: Takes no arguments and initializes members with default values.
+   - Parameterized Constructor: Takes arguments to initialize members with specific user-defined values.
+   - Copy Constructor: Creates a new object as a copy of an existing object. Syntax: `ClassName(const ClassName &source)`.
+   - Constructor Overloading: Declaring multiple constructors with different parameter lists inside the same class.
+
+2. Destructors:
+   A special member function called automatically when an object goes out of scope or is deleted. It has the same name as the class, prefixed with a tilde `~` (e.g., `~ClassName()`). It takes no arguments and has no return type.
+   - Destructors are essential for releasing resources (like dynamic memory, file handles, or sockets) allocated during the object's lifetime, preventing memory leaks.
+
+--------------------------------------------------------------------------------
+Sample Code
+--------------------------------------------------------------------------------
+
+### Sample 1: Default, Parameterized, and Overloaded Constructors
+This program demonstrates how C++ decides which constructor to run based on the arguments provided.
+
+```cpp
+#include <iostream>
+#include <string>
+
+class Book {
+public:
+    std::string title;
+    int pages;
+
+    // 1. Default Constructor
+    Book() {
+        title = "Untitled";
+        pages = 0;
+        std::cout << "Default Constructor called: " << title << std::endl;
+    }
+
+    // 2. Parameterized Constructor
+    Book(std::string t, int p) {
+        title = t;
+        pages = p;
+        std::cout << "Parameterized Constructor called: " << title << " (" << pages << " pages)" << std::endl;
+    }
+};
+
+int main() {
+    Book b1;             // Invokes Default Constructor
+    Book b2("C++ Guide", 350); // Invokes Parameterized Constructor
+    return 0;
+}
+```
+
+### Sample 2: Copy Constructor
+This program demonstrates copying data from one object to a new one using the copy constructor.
+
+```cpp
+#include <iostream>
+#include <string>
+
+class Student {
+public:
+    std::string name;
+    int age;
+
+    // Parameterized Constructor
+    Student(std::string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    // Copy Constructor
+    Student(const Student &other) {
+        name = other.name + " (Copy)";
+        age = other.age;
+        std::cout << "Copy Constructor invoked!" << std::endl;
+    }
+
+    void display() {
+        std::cout << "Student Name: " << name << ", Age: " << age << std::endl;
+    }
+};
+
+int main() {
+    Student s1("John", 20); // Normal object creation
+    Student s2 = s1;        // Invokes Copy Constructor
+    
+    s1.display();
+    s2.display();
+    return 0;
+}
+```
+
+### Sample 3: Destructor and Memory Management
+This example demonstrates the destructor being executed automatically when objects leave their local scopes, and how it helps clean up dynamically allocated memory.
+
+```cpp
+#include <iostream>
+
+class DynamicArray {
+private:
+    int* data; // Pointer to dynamically allocated memory
+
+public:
+    // Constructor allocates memory
+    DynamicArray(int size) {
+        data = new int[size];
+        std::cout << "Array of size " << size << " allocated in memory." << std::endl;
+    }
+
+    // Destructor deallocates memory
+    ~DynamicArray() {
+        delete[] data; // Crucial to prevent memory leaks!
+        std::cout << "Array memory cleaned up by Destructor." << std::endl;
+    }
+};
+
+int main() {
+    std::cout << "Main function starts." << std::endl;
+    {
+        // Object created inside a local block/scope
+        DynamicArray arr(100);
+    } // Local block ends here: arr goes out of scope and its destructor is automatically called.
+    
+    std::cout << "Main function ends." << std::endl;
+    return 0;
+}
+```

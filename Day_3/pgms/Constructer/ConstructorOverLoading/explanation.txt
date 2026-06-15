@@ -1,0 +1,62 @@
+CONSTRUCTOR OVERLOADING
+
+What is it?
+        Using multiple constructors in one class.
+        Different ways to create objects.
+
+Child Example
+
+    Pizza Shop:
+
+        Pizza()
+        ↓
+        Default pizza
+
+        Pizza("Cheese")
+        ↓
+        Cheese pizza
+
+        Pizza("Cheese", Large)
+        ↓
+        Large cheese pizza
+
+Same class.
+Different constructors.
+
+Example
+#include <iostream>
+using namespace std;
+
+class Pizza
+{
+public:
+    Pizza()
+    {
+        cout << "Default Pizza" << endl;
+    }
+
+    Pizza(string type)
+    {
+        cout << type << " Pizza" << endl;
+    }
+};
+
+int main()
+{
+    Pizza p1;
+
+    Pizza p2("Cheese");
+
+    return 0;
+}
+
+Output
+    Default Pizza
+    Cheese Pizza
+
+Understanding
+    Compiler checks:
+
+        Arguments passed
+        ↓
+        Chooses matching constructor

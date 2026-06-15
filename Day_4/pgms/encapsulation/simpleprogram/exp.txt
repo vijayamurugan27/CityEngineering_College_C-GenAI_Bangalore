@@ -1,0 +1,59 @@
+Encapsulation (Data Hiding)
+Simple Explanation
+
+Encapsulation means keeping data and methods together inside a class and protecting the data from direct access.
+
+Think of it as a capsule that hides the internal details.
+
+In C++, we use private variables to hide data and public functions to access it.
+
+Real-World Example
+ATM Machine
+
+When you withdraw money from an ATM:
+
+You cannot directly access the bank database.
+You enter your PIN.
+The ATM checks everything internally.
+
+The bank balance is hidden from you.
+
+This is called Data Hiding (Encapsulation).
+
+
+--------------------------------------
+
+#include <iostream>
+using namespace std;
+
+class BankAccount
+{
+private:
+    int balance = 5000;
+
+public:
+    void showBalance()
+    {
+        cout << "Balance = " << balance << endl;
+    }
+};
+
+int main()
+{
+    BankAccount account;
+
+    account.showBalance();
+
+    return 0;
+}
+
+---------------------------------------------------------------
+
+Output
+    Balance = 5000
+Student Understanding
+    balance → Hidden (private)
+    showBalance() → Accessible (public)
+
+Therefore data is protected.
+

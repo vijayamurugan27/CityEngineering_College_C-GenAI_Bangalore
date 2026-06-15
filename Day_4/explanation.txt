@@ -1,0 +1,121 @@
+================================================================================
+Day 4: Encapsulation and Abstraction
+================================================================================
+
+--------------------------------------------------------------------------------
+Explanation for a 5-Year Old
+--------------------------------------------------------------------------------
+Have you ever seen a TV remote control?
+You know that if you press the "Volume Up" button, the sound gets louder. That's "Abstraction" – you don't need to know about the wires, microchips, and magic radio waves inside the TV to make it louder; you just press the button!
+
+"Encapsulation" is like the plastic shell of the remote. It keeps all the fragile wires and circuits safe inside so you can't touch them directly and break them. You can only interact with the remote through the buttons (Getters and Setters).
+
+A "Friend Function" is like a trusted helper who doesn't live in your house, but you give them a special golden key to open your front door and look inside!
+
+A "Pointer" is like pointing your finger at a toy on a shelf. Instead of holding the toy, you are just showing where it is.
+The "`this` pointer" is a way for an object to point to itself, like saying: "Hey, this is MY name, not someone else's name!"
+
+--------------------------------------------------------------------------------
+Technical Explanation
+--------------------------------------------------------------------------------
+1. Encapsulation:
+   The bundling of data members and member functions into a single unit (a class) and restricting direct access to some of the object's components (data hiding). This is achieved using access specifiers like `private` and exposing public getter and setter methods.
+
+2. Abstraction:
+   The process of hiding complex implementation details and showing only the essential features of an object. In C++, abstraction can be achieved using header files, classes, and interfaces (abstract classes).
+
+3. Friend Function and Friend Class:
+   - Friend Function: A non-member function of a class that is granted permission to access the `private` and `protected` members of that class.
+   - Friend Class: A class whose member functions can access the `private` and `protected` members of another class.
+   - Declared using the `friend` keyword.
+
+4. Pointers & `this` Pointer:
+   - Pointer: A variable that stores the memory address of another variable.
+   - `this` Pointer: An implicit pointer available inside non-static member functions of a class. It points to the object that invoked the member function. Commonly used to avoid naming conflicts (when parameter names match member variable names) or to return the current object.
+
+--------------------------------------------------------------------------------
+Sample Code
+--------------------------------------------------------------------------------
+
+### Sample 1: Friend Function and Friend Class
+This example shows how a friend function and a friend class can access private data of another class.
+
+```cpp
+#include <iostream>
+
+class Box {
+private:
+    double width;
+
+public:
+    Box() { width = 0.0; }
+    void setWidth(double w) { width = w; }
+
+    // Friend Function Declaration
+    friend void printWidth(Box b);
+
+    // Friend Class Declaration
+    friend class BoxInspector;
+};
+
+// Friend function definition (Notice: not a member function of Box!)
+void printWidth(Box b) {
+    // Can access private member 'width' directly
+    std::cout << "Friend function says Box Width = " << b.width << std::endl;
+}
+
+class BoxInspector {
+public:
+    void inspect(Box b) {
+        std::cout << "Friend Class BoxInspector reads width: " << b.width << std::endl;
+    }
+};
+
+int main() {
+    Box myBox;
+    myBox.setWidth(12.5);
+
+    printWidth(myBox); // Call friend function
+
+    BoxInspector inspector;
+    inspector.inspect(myBox); // Call friend class method
+
+    return 0;
+}
+```
+
+### Sample 2: Pointers and the `this` Pointer
+This example shows how the `this` pointer resolves name shadowing when parameter names are identical to class member names.
+
+```cpp
+#include <iostream>
+#include <string>
+
+class Employee {
+private:
+    std::string name;
+    double salary;
+
+public:
+    // Constructor using 'this' to distinguish parameter names from class members
+    Employee(std::string name, double salary) {
+        this->name = name;      // 'this->name' refers to member variable; 'name' refers to parameter
+        this->salary = salary;  // 'this->salary' refers to member variable; 'salary' refers to parameter
+    }
+
+    void display() {
+        std::cout << "Employee: " << this->name << ", Salary: $" << this->salary << std::endl;
+    }
+};
+
+int main() {
+    Employee emp("Bob", 65000);
+    emp.display();
+
+    // Showing standard pointer usage
+    Employee* empPtr = &emp; // empPtr stores the memory address of emp
+    empPtr->display();       // Accessing methods via pointer using arrow operator (->)
+
+    return 0;
+}
+```

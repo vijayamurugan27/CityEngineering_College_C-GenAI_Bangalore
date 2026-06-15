@@ -1,0 +1,58 @@
+Basics of Pointers
+Simple Explanation
+
+A pointer stores the address of another variable.
+
+Real-World Example
+
+Imagine your house.
+
+House = Variable
+Address = Pointer
+
+People find your house using the address.
+
+Similarly:
+
+Pointer stores address of variable
+Diagram
+num = 10
+
+Memory:
+2000 → 10
+
+ptr = 2000
+
+Pointer stores address.
+
+Simple Program
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int num = 10;
+
+    int *ptr = &num;
+
+    cout << "Value of num = " << num << endl;
+
+    cout << "Address = " << ptr << endl;
+
+    cout << "Value using pointer = " << *ptr << endl;
+
+    return 0;
+}
+
+
+Output
+
+        Value of num = 10
+        Address = 0x61ff08
+        Value using pointer = 10
+
+Student Understanding
+
+        & → Address Of Operator
+
+        *ptr → Value at Address

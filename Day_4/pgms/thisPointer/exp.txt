@@ -1,0 +1,79 @@
+this Pointer
+Simple Explanation
+
+Every object automatically has a special pointer called:
+
+this
+
+It points to the current object.
+
+Real-World Example
+
+Imagine a teacher says:
+
+"My classroom"
+"My students"
+
+"My" refers to the current teacher.
+
+Similarly:
+
+this
+
+refers to the current object.
+
+Simple Program
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+    int age;
+
+public:
+    void setAge(int age)
+    {
+        this->age = age;
+    }
+
+    void display()
+    {
+        cout << "Age = " << age;
+    }
+};
+
+int main()
+{
+    Student s;
+
+    s.setAge(20);
+
+    s.display();
+
+    return 0;
+}
+
+Output
+    Age = 20
+Why use this?
+
+Without this:
+
+age = age;
+
+Compiler gets confused.
+
+Which age?
+
+    Parameter age?
+or
+    Class variable age?
+
+Using:
+
+    this->age = age;
+
+means:
+
+Current object's age = Parameter age

@@ -1,0 +1,18 @@
+Quick Revision Table
+Concept	Simple Meaning	Real-World Example
+Encapsulation	Hide data inside class	ATM
+Getter	Read private data	View Profile
+Setter	Update private data	Change Password
+Abstraction	Hide implementation details	Driving a Car
+Friend Function	Special function access	Office Staff Access
+Friend Class	Special class access	HR Department
+Pointer	Stores address	House Address
+this Pointer	Points to current object	"My Classroom"
+One-line Memory Trick for Students
+Encapsulation → Protect Data
+Getter/Setter → Access Data Safely
+Abstraction → Hide Complexity
+Friend Function → Special Function Access
+Friend Class → Special Class Access
+Pointer → Stores Address
+this Pointer → Current Object Address
