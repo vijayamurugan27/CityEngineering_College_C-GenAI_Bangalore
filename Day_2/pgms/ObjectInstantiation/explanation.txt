@@ -1,0 +1,68 @@
+Object Instantiation
+
+    Creating an object from a class is called object instantiation.
+
+Syntax
+    ClassName objectName;
+
+Example
+    Student s1;
+
+Here:
+    Student → class
+    s1 → object
+
+Accessing Members Using Dot Operator
+    s1.setData(1, "Amit");
+    s1.display();
+
+Multiple Objects
+    Student s1, s2, s3;
+Each object has its own separate data.
+
+Memory Concept
+    class Test
+        {
+            int a;
+            int b;
+        };
+
+Each object stores separate copies of:
+
+a
+b
+
+Example:
+
+    Test t1;
+    Test t2;
+
+Memory:
+
+    t1 -> a,b
+    t2 -> a,b
+Constructor-Based Object Creation
+
+Objects can also be initialized using constructors.
+
+    class Car
+    {
+        string brand;
+
+    public:
+        Car(string b)
+        {
+            brand = b;
+        }
+
+        void show()
+        {
+            cout << brand;
+        }
+    };
+
+    int main()
+    {
+        Car c1("Toyota");
+        c1.show();
+    }

@@ -1,0 +1,133 @@
+================================================================================
+Day 2: Classes and Objects Deep Dive
+================================================================================
+
+--------------------------------------------------------------------------------
+Explanation for a 5-Year Old
+--------------------------------------------------------------------------------
+Think of a class like a private diary with a lock on it. 
+Some things in your diary are "Public" – meaning you don't mind sharing them with everyone (like your favorite color). 
+But some things are "Private" – like your secret hideout location or your diary password. Only you can access those, and if someone else wants to know, they have to ask you nicely (like using a special key or helper function).
+
+In C++, access modifiers are like these locks:
+- "Public" is open for anyone to see and touch.
+- "Private" is locked inside, and only the object itself can use it.
+- "Protected" is like sharing only with family members (child classes).
+
+The "Scope Resolution Operator" (`::`) is like a map or a label that says: "This specific room belongs to that specific house." It tells C++ exactly which class a function belongs to.
+
+--------------------------------------------------------------------------------
+Technical Explanation
+--------------------------------------------------------------------------------
+A C++ class binds data attributes and member functions together. Day 2 focuses on class definitions, access control, and defining members outside the class scope.
+
+1. Class Declaration and Definition:
+   A class is declared using the `class` keyword followed by the class name. 
+   Member variables (attributes) and member functions (behaviors) 
+   are defined within curly braces `{}` and terminated with a semicolon `;`.
+
+2. Access Modifiers:
+   Control the visibility of class members:
+   - `public`: Members are accessible from outside the class.
+   - `private`: Members can only be accessed by member functions of the same class 
+        (default access level).
+   - `protected`: Members can be accessed within the class and by derived 
+        (inherited) classes.
+
+3. Scope Resolution Operator (`::`):
+   Used to define a class's member functions outside the class declaration. 
+   This keeps the class declaration clean and readable. 
+   Syntax: `ReturnType ClassName::FunctionName(...)`.
+
+--------------------------------------------------------------------------------
+Sample Code
+--------------------------------------------------------------------------------
+
+### Sample 1: Access Modifiers (Public vs. Private)
+This example shows how to protect class attributes using `private` 
+and access/modify them using public "Getter" and "Setter" methods (encapsulation).
+
+```cpp
+#include <iostream>
+#include <string>
+
+class BankAccount {
+private:
+    // Private data: cannot be accessed directly from outside the class
+    double balance;
+    std::string ownerName;
+
+public:
+    // Public setter for ownerName
+    void setOwnerName(std::string name) {
+        ownerName = name;
+    }
+
+    // Public method to deposit money (safely alters balance)
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            std::cout << "Deposited $" << amount << " successfully." << std::endl;
+        } else {
+            std::cout << "Invalid deposit amount!" << std::endl;
+        }
+    }
+
+    // Public getter to safely view the balance
+    double getBalance() {
+        return balance;
+    }
+
+    // Constructor to initialize balance to 0
+    BankAccount() {
+        balance = 0.0;
+    }
+};
+
+int main() {
+    BankAccount myAccount;
+    myAccount.setOwnerName("Alice");
+    
+    // myAccount.balance = 5000; // ERROR! balance is private.
+    
+    myAccount.deposit(150.50);
+    std::cout << "Current Account Balance: $" << myAccount.getBalance() << std::endl;
+
+    return 0;
+}
+```
+
+### Sample 2: Scope Resolution Operator (`::`)
+This example demonstrates declaring a member function inside a class but defining its implementation outside the class.
+
+```cpp
+#include <iostream>
+
+class Rectangle {
+private:
+    double width;
+    double height;
+
+public:
+    // Function declarations (prototypes) inside the class
+    void setDimensions(double w, double h);
+    double calculateArea();
+};
+
+// Function definitions outside the class using the scope resolution operator (::)
+void Rectangle::setDimensions(double w, double h) {
+    width = w;
+    height = h;
+}
+
+double Rectangle::calculateArea() {
+    return width * height;
+}
+
+int main() {
+    Rectangle rect;
+    rect.setDimensions(5.0, 4.0);
+    std::cout << "Rectangle Area: " << rect.calculateArea() << " sq units" << std::endl;
+    return 0;
+}
+```

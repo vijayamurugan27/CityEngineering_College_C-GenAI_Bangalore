@@ -1,0 +1,5 @@
+class ClassName
+{
+    // data members
+    // member functions
+};

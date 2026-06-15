@@ -1,0 +1,60 @@
+Meaning
+
+    Protected members:
+
+        Can be accessed inside the class
+        Cannot be accessed outside the class
+        CAN be accessed in derived (child) classes
+Real-Life Analogy
+
+    Think of a family locker.
+    Only family members can access it.
+    Not outsiders.
+    So it is protected.
+
+Program :
+
+        #include <iostream>
+        using namespace std;
+
+        class Parent
+            {
+            protected:
+                int money = 1000;
+            };
+
+        class Child : public Parent
+            {
+            public:
+                void showMoney()
+                {
+                    cout << "Money from Parent: " << money << endl;
+                }
+            };
+
+        int main()
+            {
+                Child c1;
+
+                c1.showMoney();
+
+                return 0;
+            }
+
+Output
+        Money from Parent: 1000
+
+
+WRONG Example
+    c1.money = 2000;
+
+ERROR because:
+
+    money
+
+is PROTECTED.
+
+Key Understanding
+
+    Protected works only through inheritance.
+

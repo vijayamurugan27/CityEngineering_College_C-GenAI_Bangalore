@@ -1,0 +1,12 @@
+Namespace Access
+#include <iostream>
+
+std::cout << "Hello";
+
+Here:
+
+std::
+
+means:
+
+cout belongs to std namespace

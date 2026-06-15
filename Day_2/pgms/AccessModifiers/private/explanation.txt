@@ -1,0 +1,68 @@
+PRIVATE Access Modifier
+Meaning
+
+    Members declared as private can only be accessed:
+        Inside the class
+    They CANNOT be accessed directly outside the class.
+
+Real-Life Analogy
+
+    Think of your ATM PIN.
+    Only the system should access it.
+    Nobody outside should directly see or modify it.
+    So ATM PIN is private.
+
+
+Program : 
+
+        #include <iostream>
+        using namespace std;
+
+        class BankAccount
+        {
+        private:
+            int balance;
+
+        public:
+            void setBalance(int b)
+            {
+                balance = b;
+            }
+
+            void showBalance()
+            {
+                cout << "Balance: " << balance << endl;
+            }
+        };
+
+        int main()
+        {
+            BankAccount acc;
+
+            // Correct way
+            acc.setBalance(5000);
+
+            acc.showBalance();
+
+            return 0;
+        }
+
+Output
+    Balance: 5000
+WRONG Example (Important)
+    acc.balance = 5000;
+
+This gives ERROR because:
+
+    balance
+
+is PRIVATE.
+
+Why Private is Important
+
+    Private provides:
+
+        Data hiding
+        Security
+        Controlled access
+        Encapsulation

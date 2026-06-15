@@ -1,0 +1,26 @@
+Access Modifiers in C++
+
+Access modifiers control who can access class members.
+
+There are 3 main access specifiers:
+
+Access Modifier	    Accessible Inside Class	    Accessible Outside Class	    Accessible in Derived Class
+public	            Yes	                        Yes	                            Yes
+private	            Yes	                        No	                            No
+protected	    Yes	                        No	                            Yes
+
+
+
+Default Access Modifier
+In class
+
+Default is:
+
+        private
+
+Example:
+
+        class Demo
+                {
+                    int x; // private by default
+                };

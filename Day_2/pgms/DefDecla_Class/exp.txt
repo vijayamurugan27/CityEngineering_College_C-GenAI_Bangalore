@@ -1,0 +1,25 @@
+Class Members
+
+Inside a class we can have:
+
+Type	                    Description
+
+Data Members	            Variables inside class
+Member Functions	        Functions inside class
+
+
+Breakdown
+
+Data Members
+
+        int rollNo;
+        string name;
+
+These store object data.
+
+Member Functions
+
+void setData()
+void display()
+
+These operate on the data.

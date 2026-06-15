@@ -1,0 +1,44 @@
+Step-by-Step Process to Compile and Run a C++ Program on Windows
+================================================================
+
+Follow these steps to compile and run your C++ programs:
+
+Step 1: Write the C++ Code
+--------------------------
+Write your code in a text file and save it with a `.cpp` extension (for example, `hello.cpp`).
+
+Step 2:fx Open your Terminal / Command Prompt
+-------------------------------------------
+Open PowerShell, CMD (Command Prompt), or any terminal of your choice on Windows.
+
+Step 3: Navigate to the Project Directory
+-----------------------------------------
+Change the directory to where your `.cpp` file is located:
+  cd "C:\Users\Lenovo\Desktop\Kings Engineering College\Day_1"
+
+Step 4: Compile the Program
+---------------------------
+Choose the compiler command depending on the C++ toolchain you have installed:
+
+- **Using GCC/g++ (MinGW-w64):**
+  Run the command below:
+  
+  
+  g++ -static hello.cpp -o hello.exe
+  
+
+  *Note:* The `-static` flag is highly recommended on Windows to package all runtime libraries into the executable, preventing "DLL not found" errors when running the program.
+
+- **Using MSVC (Microsoft Visual C++):**
+  If you are using Visual Studio's developer command prompt, run:
+  cl /EHsc hello.cpp
+
+Step 5: Run the Executable
+--------------------------
+Once compiled successfully, run the generated executable from your shell:
+
+- **In PowerShell:**
+  .\hello.exe
+
+- **In Command Prompt (CMD):**
+  hello.exe

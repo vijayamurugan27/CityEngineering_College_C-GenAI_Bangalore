@@ -1,0 +1,21 @@
+#include <iostream> 
+
+Purpose: This imports the Input/Output Stream library.
+Function: It allows your program to use tools like cout (to print text to the screen) and cin (to read keyboard input).
+Concept: The # symbol tells the compiler to load this library
+ before building your program.
+
+#include <string>
+
+Purpose: This imports the C++ Standard String library.
+Function: It allows you to create and manipulate text variables (like "Toyota" or "Hello").
+Concept: Without this, C++ only understands raw characters, 
+not full words or sentences.
+
+using namespace std;
+
+Purpose: This grants shortcuts to the standard C++ library tools.
+Function: It lets you type cout and string directly.
+Concept: Without this line, you would have to type 
+std::cout and std::string every single time to tell the 
+compiler exactly where those tools come from.

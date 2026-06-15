@@ -1,0 +1,57 @@
+PUBLIC Access Modifier
+Meaning
+
+Members declared as public can be accessed:
+
+Inside the class
+Outside the class
+Anywhere in the program
+Simple Real-Life Analogy
+
+Think of a TV remote.
+
+Anyone can use the buttons.
+
+So the buttons are public.
+
+Program :
+
+        #include <iostream>
+        using namespace std;
+
+        class Student
+        {
+        public:
+            string name;
+
+            void showName()
+            {
+                cout << "Student Name: " << name << endl;
+            }
+        };
+
+        int main()
+        {
+            Student s1;
+
+            // Accessing public variable directly
+            s1.name = "Rahul";
+
+            // Accessing public function
+            s1.showName();
+
+            return 0;
+        }
+
+Output : 
+
+    Student Name: Rahul
+
+
+Key Understanding
+
+    This works:
+
+    s1.name = "Rahul";
+
+    Because name is PUBLIC.
