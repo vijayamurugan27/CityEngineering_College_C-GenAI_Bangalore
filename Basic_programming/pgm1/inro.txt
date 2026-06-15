@@ -1,0 +1,10 @@
+Basic Syntax of a C++ Program
+Concept
+
+This program teaches:
+
+Structure of a C++ program
+#include
+main()
+cout
+return 0

@@ -1,0 +1,14 @@
+// bool stores:
+
+// true (1)
+// false (0)
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    bool isPassed = true;
+    cout << "Result = " << isPassed;
+    return 0;
+}
